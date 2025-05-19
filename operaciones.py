@@ -1,2 +1,3 @@
-def add(b, a):
-    return a + b
+# operaciones.py
+def multiplicacion(a, b):
+    return a * b
