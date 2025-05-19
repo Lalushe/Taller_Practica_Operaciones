@@ -1,34 +1,51 @@
-import tkinter as tk
+# main.py
+from tkinter import *
 from tkinter import messagebox
+from operaciones import suma, resta, multiplicacion
 
+def ejecutar_suma():
+    try:
+        a = int(entrada1.get())
+        b = int(entrada2.get())
+        resultado = suma(a, b)
+        messagebox.showinfo("Resultado", f"Suma: {resultado}")
+    except ValueError:
+        messagebox.showerror("Error", "Por favor ingresa números válidos")
 
-ventana = tk.Tk()
-ventana.title("Menú de Operaciones")
-ventana.geometry("300x200")
+def ejecutar_resta():
+    try:
+        a = int(entrada1.get())
+        b = int(entrada2.get())
+        resultado = resta(a, b)
+        messagebox.showinfo("Resultado", f"Resta: {resultado}")
+    except ValueError:
+        messagebox.showerror("Error", "Por favor ingresa números válidos")
 
+def ejecutar_multiplicacion():
+    try:
+        a = int(entrada1.get())
+        b = int(entrada2.get())
+        resultado = multiplicacion(a, b)
+        messagebox.showinfo("Resultado", f"Multiplicación: {resultado}")
+    except ValueError:
+        messagebox.showerror("Error", "Por favor ingresa números válidos")
 
-def suma():
-    messagebox.showinfo("Suma")
+# Interfaz
+ventana = Tk()
+ventana.title("Calculadora Colaborativa")
+ventana.geometry("300x300")
 
-def resta():
-    messagebox.showinfo("Resta")
+Label(ventana, text="Número 1:").pack()
+entrada1 = Entry(ventana)
+entrada1.pack()
 
-def multiplicacion():
-    messagebox.showinfo("Multiplicación")
+Label(ventana, text="Número 2:").pack()
+entrada2 = Entry(ventana)
+entrada2.pack()
 
-
-titulo = tk.Label(ventana, text="Seleccione una operación", font=("Arial", 14))
-titulo.pack(pady=10)
-
-
-btn_suma = tk.Button(ventana, text="Suma", width=20, command=suma)
-btn_suma.pack(pady=5)
-
-btn_resta = tk.Button(ventana, text="Resta", width=20, command=resta)
-btn_resta.pack(pady=5)
-
-btn_multi = tk.Button(ventana, text="Multiplicación", width=20, command=multiplicacion)
-btn_multi.pack(pady=5)
-
+Label(ventana, text="Seleccione una operación").pack(pady=10)
+Button(ventana, text="Suma", command=ejecutar_suma).pack(pady=5)
+Button(ventana, text="Resta", command=ejecutar_resta).pack(pady=5)
+Button(ventana, text="Multiplicación", command=ejecutar_multiplicacion).pack(pady=5)
 
 ventana.mainloop()
