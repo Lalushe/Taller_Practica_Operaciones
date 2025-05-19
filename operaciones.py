@@ -1,3 +1,2 @@
-# operaciones.py
-def multiplicacion(a, b):
-    return a * b
+def add(P1, P2):
+    return int(P1) + int(P2)
